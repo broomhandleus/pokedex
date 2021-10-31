@@ -1,26 +1,25 @@
-import { Pokemon } from "pokenode-ts";
-
-// export const getPokemonList: Pokemon[] = () => {
-export const getPokemonList = () => {
-  fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
+export const getPokemonList = async () => {
+  const list = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       return data;
     })
     .catch((error) => console.log(error));
+
+  return list;
 };
 
-export const getPokemon = (id: number) => {
-  fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+export const getSelectedPokemon = async (id: number) => {
+  const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       return data;
     })
     .catch((error) => console.log(error));
+
+  return pokemon;
 };

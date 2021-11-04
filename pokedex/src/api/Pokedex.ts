@@ -1,26 +1,36 @@
 import { Pokemon } from "pokenode-ts";
 
-// export const getPokemonList: Pokemon[] = () => {
-export const getPokemonList = () => {
-  fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
+export const getPokemonList = async () => {
+  const list: Promise<Pokemon[]> = await fetch(
+    "https://pokeapi.co/api/v2/pokemon/?limit=151"
+  )
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-      return data;
+      return data.results;
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      return error;
+    });
+
+  return list;
 };
 
-export const getPokemon = (id: number) => {
-  fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+// Not being used
+// Had trouble figuring out how to pass params int he sagas
+// So just put the code within the saga itself which has access to the action
+export const getSelectedPokemon = async (url: string) => {
+  const pokemon = await fetch(url)
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       return data;
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      return error;
+    });
+
+  return pokemon;
 };

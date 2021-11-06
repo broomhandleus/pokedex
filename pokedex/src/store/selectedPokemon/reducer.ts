@@ -27,6 +27,9 @@ const selectedPokemonReducer = (
         ...state,
         pending: false,
         pokemonSelected: action.payload.pokemonSelected,
+        location: action.payload.location,
+        species: action.payload.species,
+        evolution: action.payload.evolution,
         error: null,
       };
     case FETCH_SELECTED_FAILURE:
@@ -34,6 +37,9 @@ const selectedPokemonReducer = (
         ...state,
         pending: false,
         pokemonSelected: undefined,
+        location: undefined,
+        species: undefined,
+        evolution: undefined,
         error: action.payload.error,
       };
     default:

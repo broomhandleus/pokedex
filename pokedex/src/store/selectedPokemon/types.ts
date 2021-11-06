@@ -1,4 +1,9 @@
-import { Pokemon } from "pokenode-ts";
+import {
+  EvolutionChain,
+  LocationArea,
+  Pokemon,
+  PokemonSpecies,
+} from "pokenode-ts";
 import {
   FETCH_SELECTED_REQUEST,
   FETCH_SELECTED_SUCCESS,
@@ -8,11 +13,17 @@ import {
 export interface SelectedState {
   pending: boolean;
   pokemonSelected?: Pokemon;
+  location?: LocationArea;
+  species?: PokemonSpecies;
+  evolution?: EvolutionChain;
   error: string | null;
 }
 
 export interface FetchSelectedSuccessPayload {
   pokemonSelected: Pokemon;
+  location: LocationArea;
+  species: PokemonSpecies;
+  evolution: EvolutionChain;
 }
 
 export interface FetchSelectedFailurePayload {
@@ -21,7 +32,7 @@ export interface FetchSelectedFailurePayload {
 
 export interface FetchSelectedRequest {
   type: typeof FETCH_SELECTED_REQUEST;
-  url: string;
+  name: string;
 }
 
 export type FetchSelectedSuccess = {

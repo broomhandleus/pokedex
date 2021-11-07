@@ -11,9 +11,9 @@ import {
   FetchSelectedFailurePayload,
 } from "./types";
 
-export const fetchSelectedRequest = (url: string): FetchSelectedRequest => ({
+export const fetchSelectedRequest = (name: string): FetchSelectedRequest => ({
   type: FETCH_SELECTED_REQUEST,
-  url: url,
+  name: name,
 });
 
 export const fetchSelectedSuccess = (

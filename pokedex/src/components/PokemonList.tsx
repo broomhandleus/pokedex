@@ -9,6 +9,7 @@ import {
 import { fetchListRequest } from "../store/pokemonList/actions";
 import {
   Box,
+  Divider,
   IconButton,
   List,
   ListItem,
@@ -33,6 +34,9 @@ const useStyles = makeStyles({
   },
   typeChip: {
     margin: "0px 4px",
+  },
+  listBorder: {
+    border: "1px solid black",
   },
 });
 
@@ -146,11 +150,14 @@ const PokemonList = () => {
     const list =
       search.searchedList.length === 0 ? pokemonList : search.searchedList;
     return list.map((poke) => (
-      <ListItem key={poke.name}>
-        <ListItemButton onClick={(event) => selectNewPokemon(event, poke)}>
-          <ListItemText>{capitalizeFirst(poke.name)}</ListItemText>
-        </ListItemButton>
-      </ListItem>
+      <div key={poke.name}>
+        <ListItem>
+          <ListItemButton onClick={(event) => selectNewPokemon(event, poke)}>
+            <ListItemText>{capitalizeFirst(poke.name)}</ListItemText>
+          </ListItemButton>
+        </ListItem>
+        <Divider />
+      </div>
     ));
   };
 

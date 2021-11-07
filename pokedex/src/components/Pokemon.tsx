@@ -14,6 +14,7 @@ import {
   Chip,
   CircularProgress,
   Collapse,
+  Divider,
   List,
   ListItem,
   ListItemButton,
@@ -133,9 +134,12 @@ const Pokemon = () => {
     return list.map((ab) => {
       const name = capitalizeFirst(ab.ability.name);
       return (
-        <ListItem key={name}>
-          <ListItemText sx={{ pl: 4 }}>{name}</ListItemText>
-        </ListItem>
+        <div key={name}>
+          <ListItem>
+            <ListItemText sx={{ pl: 2 }}>{name}</ListItemText>
+          </ListItem>
+          <Divider />
+        </div>
       );
     });
   };
@@ -144,9 +148,12 @@ const Pokemon = () => {
     return list.map((mv) => {
       const name = capitalizeFirst(mv.move.name);
       return (
-        <ListItem key={name}>
-          <ListItemText sx={{ pl: 2 }}>{name}</ListItemText>
-        </ListItem>
+        <div key={name}>
+          <ListItem>
+            <ListItemText sx={{ pl: 2 }}>{name}</ListItemText>
+          </ListItem>
+          <Divider />
+        </div>
       );
     });
   };
@@ -155,9 +162,12 @@ const Pokemon = () => {
     return list.map((variety) => {
       const name = capitalizeFirst(variety.pokemon.name);
       return (
-        <ListItem key={name}>
-          <ListItemText sx={{ pl: 2 }}>{name}</ListItemText>
-        </ListItem>
+        <div key={name}>
+          <ListItem>
+            <ListItemText sx={{ pl: 2 }}>{name}</ListItemText>
+          </ListItem>
+          <Divider />
+        </div>
       );
     });
   };
@@ -166,9 +176,12 @@ const Pokemon = () => {
     return list.map((location) => {
       const name = capitalizeFirst(location.location_area.name);
       return (
-        <ListItem key={name}>
-          <ListItemText sx={{ pl: 2 }}>{name}</ListItemText>
-        </ListItem>
+        <div key={name}>
+          <ListItem>
+            <ListItemText sx={{ pl: 2 }}>{name}</ListItemText>
+          </ListItem>
+          <Divider />
+        </div>
       );
     });
   };

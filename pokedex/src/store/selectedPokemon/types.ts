@@ -1,6 +1,6 @@
 import {
   EvolutionChain,
-  LocationArea,
+  LocationAreaEncounter,
   Pokemon,
   PokemonSpecies,
 } from "pokenode-ts";
@@ -13,7 +13,7 @@ import {
 export interface SelectedState {
   pending: boolean;
   pokemonSelected?: Pokemon;
-  location?: LocationArea;
+  location?: LocationAreaEncounter[];
   species?: PokemonSpecies;
   evolution?: EvolutionChain;
   error: string | null;
@@ -21,7 +21,7 @@ export interface SelectedState {
 
 export interface FetchSelectedSuccessPayload {
   pokemonSelected: Pokemon;
-  location: LocationArea;
+  location: LocationAreaEncounter[];
   species: PokemonSpecies;
   evolution: EvolutionChain;
 }

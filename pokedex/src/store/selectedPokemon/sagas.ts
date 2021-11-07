@@ -4,7 +4,7 @@ import { fetchSelectedFailure, fetchSelectedSuccess } from "./actions";
 import { FETCH_SELECTED_REQUEST } from "./actionTypes";
 import {
   EvolutionChain,
-  LocationArea,
+  LocationAreaEncounter,
   Pokemon,
   PokemonSpecies,
 } from "pokenode-ts";
@@ -28,7 +28,7 @@ function* fetchSelectedPokemonSaga(action: FetchSelectedRequest) {
       .catch((error) => {
         return error;
       });
-    const locationResponse: LocationArea = yield fetch(locationUrl)
+    const locationResponse: LocationAreaEncounter[] = yield fetch(locationUrl)
       .then((locationResponse) => {
         return locationResponse.json();
       })
